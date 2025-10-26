@@ -1,0 +1,183 @@
+# 1. Variables: Labeled Boxes
+# A variable stores information
+name = "Panchito"
+age = 25
+height = 1.65
+is_student = True
+
+# 2. Basic Data Types
+# Text (String)
+message = "Hello Python"
+city = 'Mexico City'
+
+# Whole numbers (Integer)
+quantity = 100
+year = 2024
+
+# Decimal numbers (Float)
+price = 49.99
+temperature = 23.5
+
+# Booleans (True/False)
+has_discount = True
+is_available = False
+
+# Check the type of a variable
+print(type(age))  # <class 'int'>
+
+# 3. Basic Operations
+# Arithmetic
+addition = 10 + 5        # 15
+subtraction = 10 - 5     # 5
+multiplication = 10 * 5  # 50
+division = 10 / 3        # 3.333...
+integer_division = 10 // 3  # 3
+modulo = 10 % 3          # 1
+power = 2 ** 3           # 8
+
+# With strings
+full_name = "Juan" + " " + "Pérez"  # Concatenation
+repeat = "Hello " * 3  # "Hello Hello Hello "
+
+# User input
+name = input("What's your name? ")
+print(f"Hello, {name}!")  # f-string (modern formatting)
+
+🛠️ Practical Exercises (20 min):
+Exercise 1: Personal Calculator
+# Participants create:
+# 1. Variables with their name, age, city
+# 2. Calculate: age in months, age in days
+# 3. Print formatted message with f-string
+# Example: "Hello, I'm Ana from Mexico City and I'm 300 months old"
+
+Exercise 2: Tip Calculator
+# Create calculator that:
+# 1. Asks for total bill amount
+# 2. Asks for tip percentage (10, 15, 20)
+# 3. Calculates tip and final total
+# 4. Shows formatted result
+
+[0:45 - 1:15] Control Structures (30 min)
+📚 Concepts (12 min):
+1. Conditionals: Making Decisions
+# Simple if
+age = 18
+if age >= 18:
+    print("You are an adult")
+
+# If-else
+temperature = 30
+if temperature > 25:
+    print("It's hot")
+else:
+    print("Pleasant weather")
+
+# If-elif-else (multiple conditions)
+grade = 85
+
+if grade >= 90:
+    print("Excellent")
+elif grade >= 70:
+    print("Passed")
+elif grade >= 60:
+    print("Sufficient")
+else:
+    print("Failed")
+
+# Comparison operators
+# == (equal), != (not equal), > < >= <=
+
+# Logical operators
+age = 25
+has_id = True
+
+if age >= 18 and has_id:
+    print("You can enter")
+    
+if age < 18 or is_employee:
+    print("Discount applied")
+
+2. Loops: Repeating Actions
+# FOR: When you know how many times to repeat
+# Example 1: Count from 1 to 5
+for number in range(1, 6):
+    print(number)
+
+# Example 2: Iterate through a list
+fruits = ["apple", "pear", "grape"]
+for fruit in fruits:
+    print(f"I like {fruit}")
+
+# WHILE: When you don't know how many times to repeat
+counter = 0
+while counter < 5:
+    print(f"Counter: {counter}")
+    counter += 1  # counter = counter + 1
+
+# Break and Continue
+for i in range(10):
+    if i == 5:
+        break  # Exits the loop
+    if i % 2 == 0:
+        continue  # Skips to next iteration
+    print(i)
+
+🛠️ Practical Exercises (18 min):
+Exercise 3: Discount System
+# Create program that:
+# 1. Asks for purchase amount
+# 2. Applies discount according to:
+#    - Purchase >= $1000: 20% discount
+#    - Purchase >= $500: 10% discount
+#    - Purchase < $500: no discount
+# 3. Shows original price, discount and final price
+
+Exercise 4: Multiplication Table
+# Ask user for a number
+# Print its multiplication table from 1 to 10
+# Format: "5 x 3 = 15"
+
+[1:15 - 1:30] Functions and Lists (15 min)
+📚 Quick Concepts (8 min):
+Functions: Reusable Code
+# Define a function
+def greet(name):
+    return f"Hello, {name}!"
+
+# Use the function
+message = greet("Carlos")
+print(message)  # "Hello, Carlos!"
+
+# Function with multiple parameters
+def calculate_rectangle_area(base, height):
+    area = base * height
+    return area
+
+result = calculate_rectangle_area(5, 3)
+print(f"Area: {result}")  # Area: 15
+
+# Function with default value
+def personalized_greeting(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+
+print(personalized_greeting("Ana"))  # "Hello, Ana!"
+print(personalized_greeting("Ana", "Good morning"))  # "Good morning, Ana!"
+
+Lists: Data Collections
+# Create lists
+numbers = [1, 2, 3, 4, 5]
+names = ["Ana", "Luis", "Carlos"]
+mixed = [1, "text", True, 3.14]
+
+# Access elements (index starts at 0)
+print(names[0])   # "Panchito" (first)
+print(names[-1])  # "Carlos" (last)
+
+# Modify
+names[1] = "María"
+
+# Useful methods
+names.append("Pedro")      # Add to end
+names.remove("Panchito")        # Remove element
+quantity = len(names)      # Length

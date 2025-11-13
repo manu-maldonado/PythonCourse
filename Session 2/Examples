@@ -1,0 +1,143 @@
+# ¡Tu primer código Python!
+temperatura = 25
+luces_encendidas = True
+dispositivos = ["Termostato", "Luces", "Persianas"]
+
+print(f"🏠 Temperatura actual: {temperatura}°C")
+print(f"💡 Luces: {'Encendidas' if luces_encendidas else 'Apagadas'}")
+print(f"📱 Dispositivos: {len(dispositivos)}")
+# Sistema de Termostato Inteligente
+temperatura = 32
+
+if temperatura > 30:
+    print("🌡️ ¡Calor intenso! Activando aire acondicionado")
+    ajuste = "Enfriamiento máximo"
+elif temperatura > 25:
+    print("🔆 Temperatura agradable, ventilación suave")
+    ajuste = "Ventilador"
+elif temperatura < 18:
+    print("❄️ ¡Hace frío! Activando calefacción")
+    ajuste = "Calefacción"
+else:
+    print("✅ Temperatura perfecta - No se requiere ajuste")
+    ajuste = "Ninguno"
+
+print(f"Acción: {ajuste}")
+
+
+# Sistema de Seguridad Automático
+sistema_activo = True
+intentos_acceso = 0
+max_intentos = 5
+
+while sistema_activo:
+    print("🔒 Sistema de seguridad activo...")
+    
+    # Simulación de sensor
+    codigo = input("Ingresa código (o 'salir'): ")
+    
+    if codigo == "1234":
+        print("✅ Acceso autorizado. Bienvenido a casa!")
+        sistema_activo = False
+    elif codigo == "salir":
+        print("🚪 Saliendo del sistema...")
+        break
+    else:
+        intentos_acceso += 1
+        print(f"❌ Código incorrecto. Intento {intentos_acceso}/{max_intentos}")
+        
+        if intentos_acceso >= max_intentos:
+            print("🚨 ¡ALERTA! Demasiados intentos fallidos")
+            print("📞 Notificando a seguridad...")
+            sistema_activo = False
+    
+print("Sistema cerrado")
+
+# Reproductor de Música Smart Home
+canciones = ["Canción 1", "Canción 2", "Canción 3", "Canción 4"]
+reproduciendo = True
+cancion_actual = 0
+
+while reproduciendo and cancion_actual < len(canciones):
+    print(f"\n🎵 Reproduciendo: {canciones[cancion_actual]}")
+    
+    accion = input("(n)ext, (p)ause, (s)top: ").lower()
+    
+    if accion == "n":
+        cancion_actual += 1
+        continue
+    elif accion == "p":
+        print("⏸️ Música pausada...")
+        input("Presiona Enter para continuar...")
+    elif accion == "s":
+        print("⏹️ Deteniendo reproducción")
+        break
+    else:
+        print("❓ Comando no reconocido")
+        continue
+
+print("👋 Reproductor cerrado")
+
+
+# Revisión Automática de Dispositivos
+dispositivos = {
+    "Luces Sala": "encendido",
+    "Termostato": "activo",
+    "Persianas": "cerradas",
+    "Cerradura": "bloqueada",
+    "Cámaras": "grabando"
+}
+
+print("🏠 REPORTE DE ESTADO DEL HOGAR")
+print("=" * 40)
+
+for dispositivo, estado in dispositivos.items():
+    # Emoji según estado
+    if estado in ["encendido", "activo", "bloqueada", "grabando"]:
+        emoji = "✅"
+    elif estado == "apagado":
+        emoji = "⭕"
+    else:
+        emoji = "⚠️"
+    
+    print(f"{emoji} {dispositivo}: {estado.upper()}")
+
+# Con enumeración
+print("\n📋 LISTA NUMERADA:")
+for numero, (dispositivo, estado) in enumerate(dispositivos.items(), 1):
+    print(f"{numero}. {dispositivo} → {estado}")
+
+
+# Simulador de Consumo Energético
+print("⚡ CONSUMO ENERGÉTICO POR ZONA Y HORA\n")
+
+zonas = ["Sala", "Cocina", "Dormitorio"]
+horas_pico = [7, 8, 9, 18, 19, 20, 21]
+
+total_consumo = 0
+
+for zona in zonas:
+    print(f"🏠 {zona}:")
+    consumo_zona = 0
+    
+    for hora in range(24):
+        # Mayor consumo en horas pico
+        if hora in horas_pico:
+            consumo = 15  # kWh
+            emoji = "🔴"
+        elif 6 <= hora <= 22:
+            consumo = 8   # kWh
+            emoji = "🟡"
+        else:
+            consumo = 3   # kWh
+            emoji = "🟢"
+        
+        consumo_zona += consumo
+        
+        if hora in horas_pico:
+            print(f"  {emoji} {hora:02d}:00 - {consumo} kWh (Hora pico)")
+    
+    print(f"  Total {zona}: {consumo_zona} kWh\n")
+    total_consumo += consumo_zona
+
+print(f"💰 CONSUMO TOTAL: {total_consumo} kWh")

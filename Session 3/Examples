@@ -1,0 +1,240 @@
+# Actividad: Identificar tipos y características
+ejemplos = [
+    42,                           # int
+    3.14159,                      # float
+    "Hola Python",                # str
+    True,                         # bool
+    [1, 2, 3, 4, 5],             # list
+    (10, 20, 30),                 # tuple
+    {"nombre": "Ana", "edad": 25}, # dict
+    {1, 2, 3, 4, 5}              # set
+]
+
+for i, ejemplo in enumerate(ejemplos, 1):
+    print(f"Ejemplo {i}: {ejemplo} -> Tipo: {type(ejemplo)}")
+
+
+# NÚMEROS
+entero = 15
+decimal = 3.14
+complejo = 2 + 3j
+
+print(f"Entero: {entero}, tipo: {type(entero)}")
+print(f"Decimal: {decimal}, tipo: {type(decimal)}")
+
+# CADENAS
+cadena1 = 'Hola'
+cadena2 = "Mundo"
+cadena3 = '''Triple comilla
+para múltiples líneas'''
+
+# BOOLEANOS
+es_mayor = 10 > 5
+tiene_descuento = True
+
+print(f"10 > 5: {es_mayor}")
+print(f"Tiene descuento: {tiene_descuento}")
+
+
+# OPERADORES BÁSICOS
+a = 15
+b = 4
+
+print("=== OPERADORES ARITMÉTICOS ===")
+print(f"{a} + {b} = {a + b}")    # Suma
+print(f"{a} - {b} = {a - b}")    # Resta
+print(f"{a} * {b} = {a * b}")    # Multiplicación
+print(f"{a} / {b} = {a / b}")    # División float
+print(f"{a} // {b} = {a // b}")  # División entera
+print(f"{a} % {b} = {a % b}")    # Módulo
+print(f"{a} ** {b} = {a ** b}")  # Potencia
+
+# OPERADORES DE ASIGNACIÓN
+x = 10
+print(f"\nValor inicial: x = {x}")
+x += 5   # x = x + 5
+print(f"Después de x += 5: x = {x}")
+x *= 2   # x = x * 2
+print(f"Después de x *= 2: x = {x}")
+
+
+def calcular_propina(total_cuenta, porcentaje_propina):
+    """
+    Calcula la propina y el total a pagar
+    """
+    propina = total_cuenta * (porcentaje_propina / 100)
+    total_pagar = total_cuenta + propina
+    
+    print(f"\n=== CALCULADORA DE PROPINAS ===")
+    print(f"Total cuenta: ${total_cuenta:.2f}")
+    print(f"Propina ({porcentaje_propina}%): ${propina:.2f}")
+    print(f"Total a pagar: ${total_pagar:.2f}")
+    
+    return total_pagar
+
+# Uso práctico
+calcular_propina(85.50, 15)
+
+
+# CREACIÓN Y MÉTODOS BÁSICOS
+mensaje = "  Python es un lenguaje fantástico  "
+
+print("Cadena original:", f"'{mensaje}'")
+print("Longitud:", len(mensaje))
+print("Sin espacios:", f"'{mensaje.strip()}'")
+print("En mayúsculas:", mensaje.upper())
+print("En minúsculas:", mensaje.lower())
+print("Capitalizado:", mensaje.strip().capitalize())
+print("¿Empieza con 'Python'?", mensaje.strip().startswith("Python"))
+print("¿Termina con 'fantástico'?", mensaje.strip().endswith("fantástico"))
+
+# FORMATEO DE CADENAS
+nombre = "Carlos"
+edad = 30
+profesion = "ingeniero"
+
+# Diferentes métodos de formateo
+print("\n=== FORMATEO DE CADENAS ===")
+print("Método 1 (f-strings):", f"{nombre} tiene {edad} años y es {profesion}")
+print("Método 2 (format):", "{} tiene {} años y es {}".format(nombre, edad, profesion))
+print("Método 3 (%):", "%s tiene %d años y es %s" % (nombre, edad, profesion))
+
+# MÉTODOS AVANZADOS
+texto = "python,java,c++,javascript"
+lenguajes = texto.split(",")
+print(f"\nLenguajes separados: {lenguajes}")
+
+frase = "Aprendiendo Python desde cero"
+print(f"Reemplazar 'cero' por 'casa': {frase.replace('cero', 'casa')}")
+print(f"Posición de 'Python': {frase.find('Python')}")
+
+
+# LISTAS - Colecciones ordenadas y modificables
+print("=== TRABAJANDO CON LISTAS ===")
+estudiantes = ["Ana", "Carlos", "María", "Pedro"]
+calificaciones = [85, 92, 78, 88]
+
+print("Lista de estudiantes:", estudiantes)
+print("Primer estudiante:", estudiantes[0])
+print("Último estudiante:", estudiantes[-1])
+
+# Modificar lista
+estudiantes.append("Laura")  # Agregar al final
+estudiantes.insert(1, "David")  # Insertar en posición
+print("Después de agregar:", estudiantes)
+
+# TUPLAS - Inmutables
+print("\n=== TRABAJANDO CON TUPLAS ===")
+coordenadas = (40.7128, -74.0060, "Nueva York")
+print("Coordenadas:", coordenadas)
+print("Latitud:", coordenadas[0])
+print("Longitud:", coordenadas[1])
+
+# DICCIONARIOS - Pares clave-valor
+print("\n=== TRABAJANDO CON DICCIONARIOS ===")
+estudiante = {
+    "nombre": "Ana García",
+    "edad": 22,
+    "carrera": "Ingeniería",
+    "calificaciones": [85, 92, 78],
+    "activo": True
+}
+
+print("Diccionario del estudiante:", estudiante)
+print("Nombre:", estudiante["nombre"])
+print("Edad:", estudiante["edad"])
+
+# Agregar nueva clave
+estudiante["semestre"] = 5
+print("Después de agregar semestre:", estudiante)
+
+# Recorrer diccionario
+print("\n--- Información del estudiante ---")
+for clave, valor in estudiante.items():
+    print(f"{clave.capitalize()}: {valor}")
+
+
+# SISTEMA DE CALIFICACIONES
+def evaluar_calificacion(nota):
+    if nota >= 90:
+        return "A - Excelente"
+    elif nota >= 80:
+        return "B - Muy Bueno"
+    elif nota >= 70:
+        return "C - Bueno"
+    elif nota >= 60:
+        return "D - Regular"
+    else:
+        return "F - Reprobado"
+
+# VERIFICADOR DE EDAD
+edad = int(input("Introduce tu edad: "))
+
+if edad >= 18:
+    print("Eres mayor de edad")
+    if edad >= 65:
+        print("Y perteneces a la tercera edad")
+else:
+    print("Eres menor de edad")
+    if edad < 13:
+        print("Eres un niño")
+    else:
+        print("Eres un adolescente")
+
+
+# SIMULADOR DE CAJERO AUTOMÁTICO
+def cajero_automatico():
+    saldo = 1000.0
+    intentos = 0
+    max_intentos = 3
+    
+    print("💰 BIENVENIDO AL CAJERO AUTOMÁTICO PYTHON 💰")
+    
+    while intentos < max_intentos:
+        pin = input("\nIntroduce tu PIN (4 dígitos): ")
+        
+        if pin == "1234":
+            print("✅ PIN correcto. Acceso concedido.")
+            
+            # Menú principal
+            while True:
+                print(f"\nSaldo actual: ${saldo:.2f}")
+                print("1. Retirar dinero")
+                print("2. Depositar dinero")
+                print("3. Salir")
+                
+                opcion = input("Selecciona una opción (1-3): ")
+                
+                if opcion == "1":
+                    cantidad = float(input("Cantidad a retirar: $"))
+                    if cantidad <= saldo:
+                        saldo -= cantidad
+                        print(f"✅ Retiro exitoso. Nuevo saldo: ${saldo:.2f}")
+                    else:
+                        print("❌ Fondos insuficientes.")
+                        
+                elif opcion == "2":
+                    cantidad = float(input("Cantidad a depositar: $"))
+                    saldo += cantidad
+                    print(f"✅ Depósito exitoso. Nuevo saldo: ${saldo:.2f}")
+                    
+                elif opcion == "3":
+                    print("👋 Gracias por usar nuestro cajero. ¡Hasta pronto!")
+                    break
+                else:
+                    print("❌ Opción no válida.")
+            
+            break  # Salir del bucle de PIN
+            
+        else:
+            intentos += 1
+            intentos_restantes = max_intentos - intentos
+            print(f"❌ PIN incorrecto. Te quedan {intentos_restantes} intentos.")
+    
+    else:
+        print("🚫 Demasiados intentos fallidos. Tarjeta bloqueada.")
+
+# Ejecutar cajero
+cajero_automatico()
+
+

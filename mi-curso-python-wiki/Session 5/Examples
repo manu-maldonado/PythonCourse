@@ -1,0 +1,402 @@
+================================================================================
+RESUMEN DE TODOS LOS SCRIPTS DE PYTHON session 5
+Fecha: 4 de Diciembre de 2025
+================================================================================
+
+===============================================================================
+ARCHIVO: capturaDeProductos.py
+===============================================================================
+
+#Carrito de supermercado
+#Captura de productos
+
+productos = []
+producto = {}
+while True:
+	producto = {}
+	#Ingresa el nombre del producto
+	llaveObjeto = input("Ingresa el nombre del producto: ")
+	
+	if llaveObjeto == "fin":
+		break
+	
+	#Ingresa el valor del objeto:
+	valorObjeto = input("Ingresa el precio del producto: ")
+	producto[llaveObjeto] = valorObjeto
+	productos.append(producto)
+
+	print(f"nuevo producto agregado {llaveObjeto} - ${valorObjeto}")
+
+result = ""
+
+#ctrl + k + c  comentar
+#ctrl + k + u  descomentar
+precioTotal = 0
+precios = []
+for elementoProducto in productos:
+	print(elementoProducto.items())
+	for llave, valor in elementoProducto.items():
+		stringTemporal = f"{llave} - ${valor}"
+		result += stringTemporal
+		precioTotal += int(valor)
+		precios.append(valor)
+
+print(f"El precio maximo es: ${max(precios)}, el precio minimo: ${min(precios)} ")
+print("Listado de productos capturados:")
+print(result)	
+
+print("Cantidad de productos capturados:")
+print(len(productos))
+
+print("Precio total de todos los productos:")
+print(precioTotal)
+
+
+#MOSTRAR El LISTADO DE TODOS LOS PRODUCTOS con su respectivo costo:
+# y Una seccion con el total de todos los productos, y la suma del precio cada de los productos
+
+#= asignando
+#== comprobando (operadores para comprobar condiciones)
+# {} LLAVES
+# [] CORCHETES
+#[] - ARRAY
+# {} un objecto tiene  - Llave-VALOR (key, value) 
+# Podemos tener un [] array de objetos {}
+'''[
+	{ "Pepsi": "20" },
+	{ "Coca-Cola": "23" },	
+	{ "Atun": "20"}
+ ]'''
+
+'''
+	{"Name": "Pepsi},
+	{"Name":"Coca-Cola"}
+'''
+#[0] - INDICE - recupera el valor del arreglo
+#producto['Atun'] -  recuperar el valor de un objeto por medio de el nombre de una propiedad
+
+
+===============================================================================
+ARCHIVO: exercisesMaxAndDictionaries.py
+===============================================================================
+
+def getMaxMinProduct(listaProductos, isMax):
+    print(f"fue invocado desde getMaxProduct como: {isMax}")
+    if isMax:
+        return  max(listaProductos)
+    else:        
+        return  min(listaProductos)
+
+#Exercises with max and dictionaries
+productos = [ 1, 49,3,19,39,0,999,14]
+precioMayor = getMaxMinProduct(productos, True)  #max(productos)
+precioMenor = getMaxMinProduct(productos, False)
+
+print(f"el precio menor es:{precioMenor}, el mayor es: {precioMayor}")
+
+#cls - limpiar consola
+
+
+# un objeto puede tener muchas propiedades de 1 hasta n
+productos = [
+    {"nombre": "Pepsi", "precio": 20, "stock": 50},
+    {"nombre": "Coca-Cola", "precio": 23, "stock": 30},
+    {"nombre": "Atun", "precio": 20, "stock": 100}
+]
+
+objetoConPrecioMayor = max(productos, key=lambda x: x["precio"])
+objetoConPrecioMenor = min(productos, key=lambda x: x["precio"])
+
+print(f"esto es un objeto {objetoConPrecioMayor}")
+print(f"precio mayor es:{objetoConPrecioMayor['precio']}, precio menor es:{objetoConPrecioMenor['precio']}")
+
+
+===============================================================================
+ARCHIVO: firstScript.py
+===============================================================================
+
+# This is my first script in Python
+"""
+Hola equipo, 
+bienvenidos a México, 
+les dare un tour por esta maravillosa
+caotica, y surealista ciudad de nuestro 
+hermoso país.
+"""
+
+print("!Heyyy amigo vamos por unos tacos")
+
+#variable básicas
+nombre = input("Cómo te llamas?")
+
+print(f"Que onda {nombre}, de dónde eres?")
+
+print("felicidades este es tu primer script de python, pronto serás un master")
+
+nombre_del_usuario 
+nombreDelUsuario
+
+
+===============================================================================
+ARCHIVO: fondaDonaMaria.py
+===============================================================================
+
+#Fonda doña Maria
+
+print("Fonda doña Maria")
+print("Menú del día")
+
+##Decrementar contador -= Itera sobre todos los elementos del arreglo y nos retorna del ultimo al primero
+##LIFO
+menu = ["Pozole", "Enchiladas", "Chiles en nogada"]
+print(len(menu))
+contador = len(menu) -1
+while(contador >= 0):
+	print(f"El menu ordenado del ultimo al primero es: {menu[contador]}") 
+	contador -=1;
+
+longitudMenu =  len(menu) #3 longitud total del arreglo de menu
+
+print("-------- Menu inverso---------")
+
+##Incrementar contadores += Itera sobre todos los elementos del arreglo y nos retorna del primero al ultimo
+##FIFO
+contadorOrdenado = 0
+while(contadorOrdenado < longitudMenu):
+	print(f"El menu ordenado del primero al ultimo es: {menu[contadorOrdenado]}") #0
+	contadorOrdenado +=1 #1
+
+#Output
+#0 < 3
+#1 < 3
+#2 < 3
+
+print("Presione . si desea salir de la pantalla de menu")
+totalCuenta = 0
+ordenActiva = True
+
+while ordenActiva:
+	opcion = input("Quieres ordenar algo, ingresa el número de la opción del menu(1,3)")
+	if opcion == "1":
+		print("pozole agregado a la compra")
+		totalCuenta +=80
+	elif opcion == "2":
+		print("Enchiladas agregadas a la compra")
+		totalCuenta +=70
+	elif opcion == "3":
+		print("Chiles en nogada agregadas a la compra")
+		totalCuenta +=120
+	elif(opcion == "."):
+		ordenActiva = False
+	else:
+		print("No existe esa opción")
+
+	print(f"Total hasta ahora es: {totalCuenta}")
+
+	if totalCuenta > 0:
+		propina = totalCuenta * 0.10
+		totalFinal = totalCuenta + propina		
+		print("Resumen de cuenta:")
+		print(f"Subtotal: ${totalCuenta}")
+		print(f"Propina: {propina}")
+		print(f"Total: {totalFinal}")
+		print("Gracias por comprar con nosotros")		
+
+
+===============================================================================
+ARCHIVO: ScriptChilango.py
+===============================================================================
+
+print("Bienvenidos al script mas chilango")
+
+#Datos Personales
+nombreUser = input("Hey, cómo te llamas?")
+colonia = input("¿De qué colonia eres?")
+tacosFavoritos = input("Tacos al pastor o tacos de suadero")
+
+edad = int(input("¿Cuál es tu edad?"))
+
+if edad >=18:
+	print("Ya puedes comer tacos mientras programas")
+else:
+	print("Solo puedes tomar boing aun estas chavo")
+
+
+===============================================================================
+ARCHIVO: taqueriaFuncional.py
+===============================================================================
+
+def geCalcularPrecio(tipo, cantidad, extras):
+
+    ##la poderosa logica que la clase implemente
+    ## dados unos if elif
+    ## return resultado
+    if tipo == "Al pastor":
+        precio = 20
+        return (cantidad * precio) + extras
+    elif tipo == "Machito":
+        precio = 22
+        return (cantidad * precio) + extras
+    elif tipo == "Suadero":
+        precio = 15
+        return (cantidad * precio) + extras
+    elif tipo == "Arabes":
+        precio = 30
+        return (cantidad * precio) + extras
+    else:
+        return 0
+
+def aplicarDescuento(total, descuento):
+    return total * descuento
+
+def imprimirTicket(objetoDetalle):
+    print("=")
+    print("Gracias por comprar con nosotros")
+    print("El detalle de su compra es:")
+    print(f"Subtotal: ${objetoDetalle['totalSinDescuento']:.2f}")
+    print(f"Descuento (10%): -${objetoDetalle['totalDescuento']:.2f}")
+    print("-")
+    print(f"Total a pagar: ${objetoDetalle['total']:.2f}")
+    print("=")
+
+def tomarOrden():
+    tipoDeTacos = ["Al pastor" , "Machito", "Suadero", "Arabes"]
+    listadoExtras = ["Cebolla" , "Cilantro", "Salsa verde", "Salsa Roja"]
+    
+    print("=")
+    print("BIENVENIDO A LA TAQUERÍA")
+    print("=")
+    
+    listadoDePedido = []
+    
+    # Menú de tacos disponibles con precios
+    print("\nTipos de tacos disponibles:")
+    print("1. Al pastor - $20")
+    print("2. Machito - $22")
+    print("3. Suadero - $15")
+    print("4. Arabes - $30")
+    
+    # Preguntar si desea ordenar
+    seguirOrdenando = "si"
+    
+    while seguirOrdenando.lower() == "si":
+        print("\n--- Nueva Orden ---")
+        
+        # Seleccionar tipo de taco
+        opcionTaco = int(input("Seleccione el número del tipo de taco (1-4): "))
+        tipoTaco = tipoDeTacos[opcionTaco - 1]
+        
+        # Ingresar cantidad
+        numeroTacos = int(input("¿Cuántos tacos desea? "))
+        
+        # Seleccionar extras
+        print("\nExtras disponibles:")
+        for i, extra in enumerate(listadoExtras, 1):
+            print(f"{i}. {extra}")
+        
+        extrasSeleccionados = []
+        costoExtras = 0
+        
+        agregarExtras = input("¿Desea agregar extras? (si/no): ")
+        if agregarExtras.lower() == "si":
+            while True:
+                opcionExtra = int(input("Seleccione el número del extra (0 para terminar): "))
+                if opcionExtra == 0:
+                    break
+                elif 1 <= opcionExtra <= 4:
+                    extra = listadoExtras[opcionExtra - 1]
+                    if extra not in extrasSeleccionados:
+                        extrasSeleccionados.append(extra)
+                        print(f"{extra} agregado.")
+                    else:
+                        print("Este extra ya fue agregado.")
+                else:
+                    print("Opción inválida.")
+            
+            # Costo por extras (opcional, puedes ajustar)
+            if len(extrasSeleccionados) > 0:
+                costoExtras = len(extrasSeleccionados) * 2  # $2 por cada extra
+        
+        # Calcular precio total de esta comanda
+        precioComanda = geCalcularPrecio(tipoTaco, numeroTacos, costoExtras)
+        
+        # Crear la comanda
+        comanda = {
+            "TipoDeTaco": tipoTaco,
+            "NumeroDeTacos": numeroTacos,
+            "Precio": precioComanda,
+            "Extras": extrasSeleccionados
+        }
+        
+        listadoDePedido.append(comanda)
+        print(f"\n¡Orden agregada! Total de esta orden: ${precioComanda:.2f}")
+        
+        # Preguntar si desea seguir ordenando
+        seguirOrdenando = input("\n¿Desea agregar otra orden? (si/no): ")
+    
+    # Calcular el total sumando todos los precios de las comandas
+    totalSinDescuento = 0
+    for objetoComanda in listadoDePedido:
+        totalSinDescuento += objetoComanda["Precio"]
+    
+    # Aplicar descuento del 10% (0.10)
+    descuento = 0.10
+    montoDescuento = aplicarDescuento(totalSinDescuento, descuento)
+    totalConDescuento = totalSinDescuento - montoDescuento
+    
+    # Crear el objeto detalle con el total y descuento
+    objetoDetalle = {
+        "totalSinDescuento": totalSinDescuento,
+        "totalDescuento": montoDescuento,
+        "total": totalConDescuento
+    }
+    
+    # Imprimir el ticket
+    print("\n")
+    imprimirTicket(objetoDetalle)
+
+# Ejecutar la función
+tomarOrden() 
+
+
+===============================================================================
+ARCHIVO: vendedorTamales.py
+===============================================================================
+
+#vendedor de tamales 
+print("Vendedor de tamales automatico")
+
+#products o tipos de tamales en existencia 
+sabores = ["Verde","Mole","Rajas","Dulce"]
+precios = {"Verde":25, "Mole":28, "Rajas":26, "Dulce":22}
+
+#cliente
+dinero = int(input("¿Cuánto dinero traes?"))
+saborDeseado = input("¿De qué sabor gusta?")
+
+#verificar disponibilidad y dinero
+if saborDeseado in sabores:
+	precio = precios[saborDeseado]
+
+	if dinero >= precio:
+		cambio = dinero - precio
+		print(f"Aqui tienes tu tamal deseado {saborDeseado} y tu cambio es {cambio}")
+	
+		if cambio >= 5:
+			print("tengo chicles también")
+	else:
+		falta = precio - dinero
+		print(f"no te alcanza, carnal, Te faltan {falta}")
+else:
+	print("ese sabor no existe jefe, ponga atención, solo tenemos de:")
+	for sabor in sabores:
+		print(f" {sabor}")
+
+		
+#{} - objecto - key - value
+
+
+================================================================================
+FIN DEL RESUMEN
+Total de archivos incluidos: 7
+================================================================================

@@ -189,3 +189,12 @@ def mostrar_vocales():
     return "a", 42, False, "o", "u"
 
 print(mostrar_vocales())
+
+
+def depositar (self, es_deposito):  
+            es_deposito == True 
+            if es_deposito:
+                return "Se va a depositar"
+            else:
+                
+                return "Se va a retirar"        
